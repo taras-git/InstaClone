@@ -81,8 +81,7 @@ class ViewController: UIViewController {
         }))
         self.present(alert, animated: true, completion: nil)
     }
-
-
+    
     override func viewDidAppear(_ animated: Bool) {
         if PFUser.current() != nil {
             self.performSegue(withIdentifier: "showUserTable", sender: self)
