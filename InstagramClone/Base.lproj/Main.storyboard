@@ -109,6 +109,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Users" id="vUz-Ji-NWi">
+                        <barButtonItem key="leftBarButtonItem" title="Post" id="Gim-vF-IoH">
+                            <connections>
+                                <segue destination="7Wm-66-bRc" kind="show" id="2hI-b9-K1D"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Logout" id="e2i-g1-JDz">
                             <connections>
                                 <action selector="logoutButtonPressed:" destination="JNL-Vl-PfC" id="psJ-we-trZ"/>
@@ -122,6 +127,57 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4hY-h5-zeB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1774" y="134"/>
+        </scene>
+        <!--Post Image-->
+        <scene sceneID="kkq-6P-3iG">
+            <objects>
+                <viewController title="Post Image" id="7Wm-66-bRc" customClass="PostViewController" customModule="InstagramClone" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1bj-90-l59">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Oza-IO-tGe">
+                                <rect key="frame" x="16" y="64" width="343" height="258"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.8779941307106599" green="0.8779941307106599" blue="0.8779941307106599" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add a comment..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vnn-XS-O3A">
+                                <rect key="frame" x="16" y="390" width="343" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5u2-e9-JoK">
+                                <rect key="frame" x="121" y="340" width="132" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Choose an image..."/>
+                                <connections>
+                                    <action selector="chooseImage:" destination="7Wm-66-bRc" eventType="touchUpInside" id="Qlc-Gx-xpY"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uJQ-ZG-P3p">
+                                <rect key="frame" x="172" y="446" width="31" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Post"/>
+                                <connections>
+                                    <action selector="postImage:" destination="7Wm-66-bRc" eventType="touchUpInside" id="fP6-z9-P98"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="vnn-XS-O3A" firstAttribute="centerX" secondItem="1bj-90-l59" secondAttribute="centerX" id="NJq-lf-crT"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="52U-ZI-C6a"/>
+                    </view>
+                    <connections>
+                        <outlet property="comment" destination="vnn-XS-O3A" id="ReZ-ib-UFP"/>
+                        <outlet property="imageToPost" destination="Oza-IO-tGe" id="tUu-Ti-pkr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XvK-1E-xFM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2565.5999999999999" y="133.5832083958021"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="PUi-mM-S7o">
