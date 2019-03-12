@@ -8,10 +8,15 @@ PODS:
 DEPENDENCIES:
   - Parse
 
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Bolts
+    - Parse
+
 SPEC CHECKSUMS:
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
   Parse: d3edaf8c7c722cb33cb83ba7821d015ae32d362d
 
-PODFILE CHECKSUM: 482897470889bf22a752dfbed87c69e4e6e5016f
+PODFILE CHECKSUM: 0b03e80fdcaf1129ae59df3b1ac67107c957af5f
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.5.3

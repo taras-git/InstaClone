@@ -13,6 +13,7 @@ class PostViewController: UIViewController, UINavigationControllerDelegate, UIIm
 
     @IBOutlet weak var imageToPost: UIImageView!
     @IBOutlet weak var comment: UITextField!
+    var activityIndicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
 
     @IBAction func postImage(_ sender: UIButton) {
         if let image = imageToPost.image {
@@ -20,9 +21,11 @@ class PostViewController: UIViewController, UINavigationControllerDelegate, UIIm
             post["message"] = comment.text
             post["userid"] = PFUser.current()?.objectId
             if let imageData = image.pngData() {
+                self.displayProgressBar()
                 let imageFile = PFFile(name: "image.png", data: imageData)
                 post["imageFile"] = imageFile
                 post.saveInBackground { (success, error) in
+                    self.hideProgressBar()
                     if let error = error {
                         print(error.localizedDescription)
                     } else {
@@ -67,6 +70,20 @@ class PostViewController: UIViewController, UINavigationControllerDelegate, UIIm
         self.present(alert, animated: true, completion: nil)
     }
 
+    
+    func displayProgressBar(){
+        activityIndicator.center = self.view.center
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.style = .gray
+        self.view.addSubview(activityIndicator)
+        activityIndicator.startAnimating()
+        UIApplication.shared.beginIgnoringInteractionEvents()
+    }
+    
+    func hideProgressBar(){
+        activityIndicator.stopAnimating()
+        UIApplication.shared.endIgnoringInteractionEvents()
+    }
 
     /*
     // MARK: - Navigation
